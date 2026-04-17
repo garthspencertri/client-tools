@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Your Journey Starts Here | Garth Spencer Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2f45;
+    --navy-light: #243b55;
+    --teal: #1D9E75;
+    --teal-dark: #158a62;
+    --gold: #EF9F27;
+    --white: #f8f9fa;
+    --grey: #adb5bd;
+    --grey-light: #e9ecef;
+    --green: #2dc653;
+    --amber: #EF9F27;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(160deg, var(--navy-mid) 0%, var(--navy) 100%);
+    padding: 32px 20px 24px;
+    text-align: center;
+    border-bottom: 3px solid var(--teal);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(29,158,117,0.08);
+  }
+  .header-tag {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--white);
+  }
+  .header h1 span { color: var(--teal); }
+  .header p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--grey);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .header-meta {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .header-meta span {
+    font-size: 11px;
+    color: var(--grey);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .header-meta span::before {
+    content: '●';
+    color: var(--teal);
+    font-size: 8px;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    background: var(--navy-mid);
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--grey);
+    margin-bottom: 6px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    border-radius: 10px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    margin: 24px 0 4px;
+    padding: 0 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(29,158,117,0.25);
+  }
+
+  /* ── FORM CONTAINER ── */
+  .form-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: var(--navy-mid);
+    border-radius: 12px;
+    padding: 22px 20px;
+    margin-top: 16px;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: border-color 0.2s;
+  }
+  .q-card:focus-within {
+    border-color: rgba(29,158,117,0.4);
+  }
+  .q-number {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .q-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .q-hint {
+    font-size: 12px;
+    color: var(--grey);
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  /* ── TEXT INPUT ── */
+  input[type="text"], input[type="number"], input[type="date"] {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="date"]:focus {
+    border-color: var(--teal);
+    background: rgba(29,158,117,0.06);
+  }
+  input[type="text"]::placeholder,
+  input[type="number"]::placeholder { color: var(--grey); }
+  input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
+
+  /* ── TEXTAREA ── */
+  textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  textarea:focus {
+    border-color: var(--teal);
+    background: rgba(29,158,117,0.06);
+  }
+  textarea::placeholder { color: var(--grey); }
+
+  /* ── SELECT ── */
+  select {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23adb5bd' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+  }
+  select:focus { border-color: var(--teal); background-color: rgba(29,158,117,0.06); }
+  select option { background: var(--navy-mid); color: var(--white); }
+
+  /* ── INLINE PAIR ── */
+  .input-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .input-pair label {
+    font-size: 11px;
+    color: var(--grey);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── TOGGLE BUTTONS ── */
+  .toggle-wrap {
+    display: flex;
+    gap: 12px;
+  }
+  .toggle-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .toggle-btn.selected-yes {
+    background: rgba(239,159,39,0.15);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .toggle-btn.selected-no {
+    background: rgba(29,158,117,0.15);
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  /* ── MULTI-SELECT CHIPS ── */
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    padding: 9px 16px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .chip.selected {
+    background: rgba(29,158,117,0.2);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  /* ── DAY AVAILABILITY GRID ── */
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .day-btn {
+    padding: 10px 0;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .day-btn.selected {
+    background: rgba(29,158,117,0.2);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  /* ── TIME OF DAY ── */
+  .time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .time-btn {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .time-btn.selected {
+    background: rgba(29,158,117,0.2);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  /* ── COLLAPSIBLE DETAIL ── */
+  .expand-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .expand-detail.visible {
+    max-height: 400px;
+  }
+  .expand-inner {
+    margin-top: 16px;
+  }
+  .expand-inner .q-label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .expand-inner .q-hint {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  /* ── SLIDER ── */
+  .slider-wrap { position: relative; }
+  .slider-val-display {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .slider-val-display .big-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--white);
+    transition: color 0.3s;
+  }
+  .slider-val-display .num-label {
+    font-size: 11px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.12);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 4px rgba(29,158,117,0.2);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 8px rgba(29,158,117,0.25);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: none;
+    cursor: pointer;
+  }
+  .slider-endpoints {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--grey);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 18px;
+    background: var(--teal);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:active {
+    background: var(--teal-dark);
+    transform: scale(0.99);
+  }
+
+  /* ── SUCCESS SCREEN ── */
+  .success-screen {
+    display: none;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px 16px;
+    text-align: center;
+  }
+  .success-screen.visible { display: block; }
+  .success-icon { font-size: 56px; margin-bottom: 16px; }
+  .success-screen h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .success-screen p {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .wa-box {
+    background: var(--navy-mid);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: left;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .wa-box-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .wa-summary-text {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--grey);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .copy-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:active { background: rgba(255,255,255,0.12); }
+  .copy-btn.copied {
+    background: rgba(45,198,83,0.15);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .wa-open-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #25D366;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .wa-open-btn:active { opacity: 0.85; }
+  .footer-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">Your Journey Starts Here</div>
+  <h1>GARTH <span>SPENCER</span><br>COACHING</h1>
+  <p>Complete this before your first session.<br>The more detail you give me, the better I can tailor your plan from day one.</p>
+  <div class="header-meta">
+    <span>5 minutes</span>
+    <span>One time only</span>
+    <span>Sends to WhatsApp</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span id="progressLabel">Getting started</span>
+    <span id="progressPct">0%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap" id="formWrap">
+
+  <!-- ── SECTION: ABOUT YOU ── -->
+  <div class="section-divider">About you</div>
+
+  <!-- Q1: Name -->
+  <div class="q-card">
+    <div class="q-number">Question 01</div>
+    <div class="q-label">Full name</div>
+    <input type="text" id="q_name" placeholder="First and last name" autocomplete="name" inputmode="text" oninput="updateProgress()">
+  </div>
+
+  <!-- Q2: Age / Height / Weight -->
+  <div class="q-card">
+    <div class="q-number">Question 02</div>
+    <div class="q-label">Age, height and weight</div>
+    <div class="q-hint">I use these to calibrate zones and load — metric is fine.</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+      <div>
+        <label style="font-size:11px;color:var(--grey);font-weight:500;display:block;margin-bottom:6px;">Age</label>
+        <input type="number" id="q_age" placeholder="e.g. 38" min="18" max="80" inputmode="numeric" oninput="updateProgress()">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--grey);font-weight:500;display:block;margin-bottom:6px;">Height (cm)</label>
+        <input type="number" id="q_height" placeholder="e.g. 178" inputmode="numeric" oninput="updateProgress()">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--grey);font-weight:500;display:block;margin-bottom:6px;">Weight (kg)</label>
+        <input type="number" id="q_weight" placeholder="e.g. 82" inputmode="numeric" oninput="updateProgress()">
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: TRAINING BACKGROUND ── -->
+  <div class="section-divider">Training background</div>
+
+  <!-- Q3: Swim confidence -->
+  <div class="q-card">
+    <div class="q-number">Question 03</div>
+    <div class="q-label">Can you swim 400m front crawl continuously without stopping?</div>
+    <div class="q-hint">Be honest — no judgement here. This shapes your swim programme from week one.</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn" id="swimYes" onclick="selectToggle('swim','Yes','swimYes','swimNo')">Yes</button>
+      <button class="toggle-btn" id="swimNo"  onclick="selectToggle('swim','No','swimYes','swimNo')">Not yet</button>
+    </div>
+  </div>
+
+  <!-- Q4: Swim detail -->
+  <div class="q-card">
+    <div class="q-number">Question 04</div>
+    <div class="q-label">How would you describe your swim background?</div>
+    <div class="q-hint">Pick the closest match — add any extra detail below.</div>
+    <div class="chip-grid" id="swimBgChips" style="margin-bottom:12px;">
+      <div class="chip" onclick="selectChip(this,'swimBg')">Club swimmer (junior)</div>
+      <div class="chip" onclick="selectChip(this,'swimBg')">Adult Onset Learner</div>
+      <div class="chip" onclick="selectChip(this,'swimBg')">Open water only</div>
+      <div class="chip" onclick="selectChip(this,'swimBg')">Recreational swimmer</div>
+      <div class="chip" onclick="selectChip(this,'swimBg')">Complete beginner</div>
+    </div>
+    <textarea id="q_swimdetail" placeholder="Anything extra worth knowing about your swim history..." oninput="updateProgress()"></textarea>
+  </div>
+
+  <!-- Q5: Current weekly training -->
+  <div class="q-card">
+    <div class="q-number">Question 05</div>
+    <div class="q-label">Roughly how many hours a week are you currently training?</div>
+    <div class="q-hint">Be realistic — include everything (swim, bike, run, gym). Not your aspiration, your reality.</div>
+    <div class="slider-val-display">
+      <div class="big-num" id="hoursNum">5</div>
+      <div class="num-label">hours per week</div>
+    </div>
+    <div class="slider-wrap">
+      <input type="range" id="q_hours" min="1" max="20" value="5"
+        oninput="updateSlider('q_hours','hoursNum',this.value)">
+      <div class="slider-endpoints"><span>1 hr</span><span>20+ hrs</span></div>
+    </div>
+  </div>
+
+  <!-- Q6: Training history -->
+  <div class="q-card">
+    <div class="q-number">Question 06</div>
+    <div class="q-label">How long have you been training for triathlon specifically?</div>
+    <div class="chip-grid" id="historyChips">
+      <div class="chip" onclick="selectChip(this,'history')">Brand new</div>
+      <div class="chip" onclick="selectChip(this,'history')">Under 1 year</div>
+      <div class="chip" onclick="selectChip(this,'history')">1 to 3 years</div>
+      <div class="chip" onclick="selectChip(this,'history')">3 to 5 years</div>
+      <div class="chip" onclick="selectChip(this,'history')">5+ years</div>
+    </div>
+  </div>
+
+  <!-- Q7: Best race / performance -->
+  <div class="q-card">
+    <div class="q-number">Question 07</div>
+    <div class="q-label">Any notable race times or personal bests I should know about?</div>
+    <div class="q-hint">Add the event, your time or result, and roughly when it was. As many or as few as you like.</div>
+    <div id="pbRows">
+      <div class="pb-row" style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px;">
+        <input type="text" placeholder="Event (e.g. 5k, HIM)" class="pb-event" oninput="updateProgress()">
+        <input type="text" placeholder="Time / result" class="pb-time" oninput="updateProgress()">
+        <input type="text" placeholder="Year" class="pb-date" style="width:72px;" oninput="updateProgress()">
+      </div>
+      <div class="pb-row" style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px;">
+        <input type="text" placeholder="Event" class="pb-event" oninput="updateProgress()">
+        <input type="text" placeholder="Time / result" class="pb-time" oninput="updateProgress()">
+        <input type="text" placeholder="Year" class="pb-date" style="width:72px;" oninput="updateProgress()">
+      </div>
+      <div class="pb-row" style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:8px;">
+        <input type="text" placeholder="Event" class="pb-event" oninput="updateProgress()">
+        <input type="text" placeholder="Time / result" class="pb-time" oninput="updateProgress()">
+        <input type="text" placeholder="Year" class="pb-date" style="width:72px;" oninput="updateProgress()">
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--grey);margin-top:4px;">No races yet? Leave blank — that's fine.</div>
+  </div>
+
+  <!-- ── SECTION: TRAINING AVAILABILITY ── -->
+  <div class="section-divider">Availability</div>
+
+  <!-- Q8: Available days + time of day -->
+  <div class="q-card">
+    <div class="q-number">Question 08</div>
+    <div class="q-label">Which days are you typically available to train?</div>
+    <div class="q-hint">Select all that apply. Don't worry if it varies — we'll work around it.</div>
+    <div class="day-grid" id="dayGrid">
+      <button class="day-btn" onclick="toggleDay(this)">Mon</button>
+      <button class="day-btn" onclick="toggleDay(this)">Tue</button>
+      <button class="day-btn" onclick="toggleDay(this)">Wed</button>
+      <button class="day-btn" onclick="toggleDay(this)">Thu</button>
+      <button class="day-btn" onclick="toggleDay(this)">Fri</button>
+      <button class="day-btn" onclick="toggleDay(this)">Sat</button>
+      <button class="day-btn" onclick="toggleDay(this)">Sun</button>
+    </div>
+    <div class="q-label" style="margin-bottom:10px;margin-top:16px;font-size:13px;">What time of day do you typically train?</div>
+    <div class="q-hint">Select all that apply — most people have more than one window.</div>
+    <div class="time-grid" id="timeGrid" style="grid-template-columns:1fr 1fr;margin-bottom:12px;">
+      <button class="time-btn" onclick="toggleTime(this)">🌅 Pre-dawn<br><span style="font-size:11px;color:var(--grey)">Before 6am</span></button>
+      <button class="time-btn" onclick="toggleTime(this)">☀️ Early morning<br><span style="font-size:11px;color:var(--grey)">6am to 8am</span></button>
+      <button class="time-btn" onclick="toggleTime(this)">🌤 Mid-morning<br><span style="font-size:11px;color:var(--grey)">8am to midday</span></button>
+      <button class="time-btn" onclick="toggleTime(this)">🥗 Lunchtime<br><span style="font-size:11px;color:var(--grey)">Midday to 2pm</span></button>
+      <button class="time-btn" onclick="toggleTime(this)">🌆 After work<br><span style="font-size:11px;color:var(--grey)">5pm to 7pm</span></button>
+      <button class="time-btn" onclick="toggleTime(this)">🌙 Evening<br><span style="font-size:11px;color:var(--grey)">After 7pm</span></button>
+    </div>
+    <div class="q-label" style="font-size:13px;margin-bottom:6px;">Anything else about your availability worth knowing?</div>
+    <textarea id="q_availnotes" placeholder="E.g. school run means I can't start before 9am on weekdays, I work from home Wednesdays so have more flexibility..." style="min-height:70px;" oninput="updateProgress()"></textarea>
+  </div>
+
+  <!-- Q9: Max hours -->
+  <div class="q-card">
+    <div class="q-number">Question 09</div>
+    <div class="q-label">What is the maximum number of hours you can realistically commit to training per week?</div>
+    <div class="q-hint">Think about your busiest weeks with work and family — what is genuinely achievable then.</div>
+    <div class="slider-val-display">
+      <div class="big-num" id="maxHoursNum">8</div>
+      <div class="num-label">hours max per week</div>
+    </div>
+    <div class="slider-wrap">
+      <input type="range" id="q_maxhours" min="3" max="20" value="8"
+        oninput="updateSlider('q_maxhours','maxHoursNum',this.value)">
+      <div class="slider-endpoints"><span>3 hrs</span><span>20 hrs</span></div>
+    </div>
+  </div>
+
+  <!-- Q10: Work pattern + job -->
+  <div class="q-card">
+    <div class="q-number">Question 10</div>
+    <div class="q-label">How would you describe your work pattern?</div>
+    <div class="chip-grid" id="workChips" style="margin-bottom:14px;">
+      <div class="chip" onclick="selectChip(this,'work')">Office based (set hours)</div>
+      <div class="chip" onclick="selectChip(this,'work')">Office based (flexible)</div>
+      <div class="chip" onclick="selectChip(this,'work')">Work from home</div>
+      <div class="chip" onclick="selectChip(this,'work')">Shift work</div>
+      <div class="chip" onclick="selectChip(this,'work')">Frequent travel</div>
+      <div class="chip" onclick="selectChip(this,'work')">Self employed</div>
+    </div>
+    <div class="q-label" style="font-size:13px;margin-bottom:6px;">What do you do for a living?</div>
+    <div class="q-hint">A line is enough — it helps me understand the mental load you carry alongside training.</div>
+    <input type="text" id="q_job" placeholder="E.g. NHS nurse, project manager, teacher, sales director..." oninput="updateProgress()">
+  </div>
+
+  <!-- ── SECTION: KIT & GYM ── -->
+  <div class="section-divider">Kit and gym access</div>
+
+  <!-- Q11: Equipment (was Q12) -->
+  <div class="q-card">
+    <div class="q-number">Question 11</div>
+    <div class="q-label">What training kit do you have access to?</div>
+    <div class="q-hint">Tick everything that applies.</div>
+    <div class="chip-grid" id="kitChips">
+      <div class="chip" onclick="toggleChip(this,'kit')">GPS watch</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Heart rate monitor</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Power meter (road/TT bike)</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Power meter (indoor trainer)</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Smart turbo trainer</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Basic turbo trainer</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Road bike</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">TT bike</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Wetsuit</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Pool access</div>
+      <div class="chip" onclick="toggleChip(this,'kit')">Open water access</div>
+    </div>
+  </div>
+
+  <!-- Q12: Gym access (was Q13) -->
+  <div class="q-card">
+    <div class="q-number">Question 12</div>
+    <div class="q-label">What gym or strength equipment do you have access to?</div>
+    <div class="q-hint">Tick everything available to you — home or commercial gym.</div>
+    <div class="chip-grid" id="gymChips">
+      <div class="chip" onclick="toggleChip(this,'gym')">Commercial gym</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Barbells and plates</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Dumbbells</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Kettlebells</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Resistance bands</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Pull up bar</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">Cable machine</div>
+      <div class="chip" onclick="toggleChip(this,'gym')">No gym — home only</div>
+    </div>
+  </div>
+
+  <!-- Q13: TrainingPeaks (was Q14) -->
+  <div class="q-card">
+    <div class="q-number">Question 13</div>
+    <div class="q-label">Have you set up your TrainingPeaks account and can you see the dashboard?</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn" id="tpYes" onclick="selectToggle('tp','Yes','tpYes','tpNo')">Yes, all set</button>
+      <button class="toggle-btn" id="tpNo"  onclick="selectToggle('tp','No','tpYes','tpNo')">Not yet</button>
+    </div>
+  </div>
+
+  <!-- ── SECTION: RACES ── -->
+  <div class="section-divider">Races and goals</div>
+
+  <!-- Q14: Main target race (was Q15) -->
+  <div class="q-card">
+    <div class="q-number">Question 14</div>
+    <div class="q-label">What race are you training for?</div>
+    <div class="q-hint">Name, distance, and date. If you haven't committed to one yet, tell me what you're thinking.</div>
+    <textarea id="q_mainrace" placeholder="E.g. Ironman Barcelona, full distance, 12th October 2026..." oninput="updateProgress()"></textarea>
+  </div>
+
+  <!-- Q15: Lead-up races (was Q16) -->
+  <div class="q-card">
+    <div class="q-number">Question 15</div>
+    <div class="q-label">Are there any races on the lead-up to your main event?</div>
+    <div class="q-hint">Half distances, sprints, sportives, running races — anything you are already entered or considering.</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn" id="leadupYes" onclick="selectToggle('leadup','Yes','leadupYes','leadupNo')">Yes</button>
+      <button class="toggle-btn" id="leadupNo"  onclick="selectToggle('leadup','No','leadupYes','leadupNo')">Not yet</button>
+    </div>
+    <div class="expand-detail" id="leadupDetail">
+      <div class="expand-inner">
+        <div class="q-label">List them out</div>
+        <div class="q-hint">Race name, distance, and rough date for each one.</div>
+        <textarea id="q_leadupraces" placeholder="E.g. Salford Triathlon (sprint) — May, Manchester Marathon — April..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q16: Goal (was Q17) -->
+  <div class="q-card">
+    <div class="q-number">Question 16</div>
+    <div class="q-label">What does success look like to you personally?</div>
+    <div class="q-hint">Not just a time goal. What would crossing that finish line mean to you?</div>
+    <textarea id="q_goal" placeholder="E.g. Finish my first Ironman feeling strong, not broken. Prove I can do something like this around a demanding job..." oninput="updateProgress()"></textarea>
+  </div>
+
+  <!-- ── SECTION: EXISTING HABITS ── -->
+  <div class="section-divider">Existing habits</div>
+
+  <!-- Q17: Routine activities (was Q18) -->
+  <div class="q-card">
+    <div class="q-number">Question 17</div>
+    <div class="q-label">Is there anything you are already doing regularly that we should integrate into your plan?</div>
+    <div class="q-hint">E.g. weekly parkrun, Saturday club ride, yoga class on a Thursday, kids football on Sunday morning. These are things I want to work around or use, not override.</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn" id="routineYes" onclick="selectToggle('routine','Yes','routineYes','routineNo')">Yes</button>
+      <button class="toggle-btn" id="routineNo"  onclick="selectToggle('routine','No','routineYes','routineNo')">No</button>
+    </div>
+    <div class="expand-detail" id="routineDetail">
+      <div class="expand-inner">
+        <div class="q-label">Tell me what and when</div>
+        <div class="q-hint">Day, time, and what it involves.</div>
+        <textarea id="q_routine" placeholder="E.g. Parkrun every Saturday 9am, cycling club Sunday 7am (2 to 3 hours)..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: HEALTH ── -->
+  <div class="section-divider">Health and injuries</div>
+
+  <!-- Q18: Injuries (was Q19) -->
+  <div class="q-card">
+    <div class="q-number">Question 18</div>
+    <div class="q-label">Any current or recurring injuries, niggles or physical limitations?</div>
+    <div class="q-hint">I have a background in injury rehab so this stays between us. Honesty here protects your training down the line.</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn" id="injYes" onclick="selectToggle('inj','Yes','injYes','injNo')">Yes</button>
+      <button class="toggle-btn" id="injNo"  onclick="selectToggle('inj','No','injYes','injNo')">No</button>
+    </div>
+    <div class="expand-detail" id="injDetail">
+      <div class="expand-inner">
+        <div class="q-label">Describe the area and what it does</div>
+        <div class="q-hint">E.g. Left knee aches after runs over 10k. Lower back tightens on the bike. The more specific the better.</div>
+        <textarea id="q_injuries" placeholder="Location, sensation, when it flares up..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q19: Anything else (was Q20) -->
+  <div class="q-card">
+    <div class="q-number">Question 19</div>
+    <div class="q-label">Anything else I should know before we start?</div>
+    <div class="q-hint">Upcoming life events, travel, work periods, concerns, questions. If nothing to add, just say all good.</div>
+    <textarea id="q_other" placeholder="Or just type 'all good'..." oninput="updateProgress()"></textarea>
+  </div>
+
+  <!-- ── SECTION: NUTRITION ── -->
+  <div class="section-divider">Nutrition</div>
+
+  <!-- Q20: Nutrition snapshot -->
+  <div class="q-card">
+    <div class="q-number">Question 20</div>
+    <div class="q-label">What does a typical day of eating look like for you?</div>
+    <div class="q-hint">No judgement — I just want a realistic picture of your current habits before we start talking about fuelling your training. Breakfast, lunch and dinner is enough.</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div>
+        <label style="font-size:11px;color:var(--teal);font-weight:600;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;">🌅 Breakfast</label>
+        <textarea id="q_breakfast" placeholder="E.g. Porridge with banana and coffee, or usually skip it..." style="min-height:70px;" oninput="updateProgress()"></textarea>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--teal);font-weight:600;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;">☀️ Lunch</label>
+        <textarea id="q_lunch" placeholder="E.g. Sandwich and crisps at desk, leftovers from dinner..." style="min-height:70px;" oninput="updateProgress()"></textarea>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--teal);font-weight:600;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;">🌆 Dinner</label>
+        <textarea id="q_dinner" placeholder="E.g. Pasta, chicken and veg most nights, takeaway on Fridays..." style="min-height:70px;" oninput="updateProgress()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <button class="submit-btn" onclick="submitForm()">SUBMIT ONBOARDING →</button>
+
+</div>
+
+<!-- SUCCESS SCREEN -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">✅</div>
+  <h2>ONBOARDING RECEIVED</h2>
+  <p>I will review this before our first session and have everything set up in TrainingPeaks ready to go.<br>Looking forward to working together.</p>
+
+  <div class="wa-box">
+    <div class="wa-box-label">📋 Your summary — send to Garth on WhatsApp</div>
+    <div class="wa-summary-text" id="waSummary"></div>
+  </div>
+
+  <button class="copy-btn" id="copyBtn" onclick="copySummary()">📋 Copy message to clipboard</button>
+  <a class="wa-open-btn" id="waLink" href="#" target="_blank">💬 Open in WhatsApp</a>
+
+  <p class="footer-note">Copy and paste it into your WhatsApp chat with Garth.<br>See you on the start line. 🏊🚴🏃</p>
+</div>
+
+<script>
+  // ── STATE ──
+  const toggleState = {};
+  const chipState   = {};
+  let selectedDays  = [];
+  let selectedTimes = [];
+
+  // ── TOGGLE (yes/no) ──
+  function selectToggle(key, val, yesId, noId) {
+    toggleState[key] = val;
+    document.getElementById(yesId).className = 'toggle-btn' + (val === 'Yes' ? ' selected-yes' : '');
+    document.getElementById(noId).className  = 'toggle-btn' + (val === 'No'  ? ' selected-no'  : '');
+    // Handle expandable details
+    const detailMap = { leadup: 'leadupDetail', routine: 'routineDetail', inj: 'injDetail' };
+    if (detailMap[key]) {
+      const el = document.getElementById(detailMap[key]);
+      val === 'Yes' ? el.classList.add('visible') : el.classList.remove('visible');
+    }
+    updateProgress();
+  }
+
+  // ── SINGLE-SELECT CHIP ──
+  function selectChip(el, group) {
+    document.querySelectorAll(`#${group}Chips .chip`).forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    chipState[group] = el.textContent;
+    updateProgress();
+  }
+
+  // ── MULTI-SELECT CHIP ──
+  function toggleChip(el, group) {
+    el.classList.toggle('selected');
+    updateProgress();
+  }
+
+  // ── DAYS ──
+  function toggleDay(el) {
+    el.classList.toggle('selected');
+    selectedDays = Array.from(document.querySelectorAll('#dayGrid .day-btn.selected')).map(b => b.textContent);
+    updateProgress();
+  }
+
+  // ── TIMES ──
+  function toggleTime(el) {
+    el.classList.toggle('selected');
+    selectedTimes = Array.from(document.querySelectorAll('#timeGrid .time-btn.selected')).map(b => b.firstChild.textContent.trim());
+    updateProgress();
+  }
+
+  // ── SLIDER ──
+  function updateSlider(inputId, displayId, val) {
+    document.getElementById(displayId).textContent = val;
+    updateProgress();
+  }
+
+  // ── PROGRESS ──
+  function updateProgress() {
+    let filled = 0;
+    const total = 20;
+    if (document.getElementById('q_name').value.trim()) filled++;
+    if (document.getElementById('q_age').value) filled++;
+    if (toggleState['swim']) filled++;
+    if (chipState['swimBg'] || document.getElementById('q_swimdetail').value.trim()) filled++;
+    filled++; // hours slider always set
+    if (chipState['history']) filled++;
+    filled++; // max hours slider always set
+    if (chipState['work'] || document.getElementById('q_job').value.trim()) filled++;
+    if (selectedDays.length > 0) filled++;
+    if (selectedTimes.length > 0) filled++;
+    if (document.querySelectorAll('#kitChips .chip.selected').length > 0) filled++;
+    if (document.querySelectorAll('#gymChips .chip.selected').length > 0) filled++;
+    if (toggleState['tp']) filled++;
+    if (document.getElementById('q_mainrace').value.trim()) filled++;
+    if (toggleState['leadup']) filled++;
+    if (document.getElementById('q_goal').value.trim()) filled++;
+    if (toggleState['routine']) filled++;
+    if (toggleState['inj']) filled++;
+    if (document.getElementById('q_other').value.trim()) filled++;
+    if (document.getElementById('q_breakfast').value.trim() || document.getElementById('q_lunch').value.trim() || document.getElementById('q_dinner').value.trim()) filled++;
+
+    const pct = Math.round((filled / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+    document.getElementById('progressLabel').textContent = filled < total ? `${filled} of ${total} sections complete` : 'Ready to submit';
+  }
+
+  // ── SUBMIT ──
+  function submitForm() {
+    const name = document.getElementById('q_name').value.trim();
+    if (!name) { alert('Please enter your name before submitting.'); return; }
+    if (!toggleState['swim']) { alert('Please answer the swim question (Q3).'); return; }
+    if (!document.getElementById('q_mainrace').value.trim()) { alert('Please tell me about your target race (Q14).'); return; }
+
+    const age      = document.getElementById('q_age').value || 'Not provided';
+    const height   = document.getElementById('q_height').value || 'Not provided';
+    const weight   = document.getElementById('q_weight').value || 'Not provided';
+    const hours    = document.getElementById('q_hours').value;
+    const maxHrs   = document.getElementById('q_maxhours').value;
+    const swimBg   = chipState['swimBg'] || 'Not selected';
+    const swimDetail = document.getElementById('q_swimdetail').value.trim() || '';
+    const mainRace = document.getElementById('q_mainrace').value.trim();
+    const goal     = document.getElementById('q_goal').value.trim() || 'Not provided';
+    const other    = document.getElementById('q_other').value.trim() || 'Nothing to add';
+    const job      = document.getElementById('q_job').value.trim() || 'Not provided';
+    const availNotes = document.getElementById('q_availnotes').value.trim() || '';
+    const breakfast = document.getElementById('q_breakfast').value.trim() || 'Not provided';
+    const lunch    = document.getElementById('q_lunch').value.trim() || 'Not provided';
+    const dinner   = document.getElementById('q_dinner').value.trim() || 'Not provided';
+
+    // PB rows
+    const pbRows = document.querySelectorAll('#pbRows .pb-row');
+    let pbLines = [];
+    pbRows.forEach(row => {
+      const ev = row.querySelector('.pb-event').value.trim();
+      const tm = row.querySelector('.pb-time').value.trim();
+      const dt = row.querySelector('.pb-date').value.trim();
+      if (ev || tm) pbLines.push(`${ev}${tm ? ' — ' + tm : ''}${dt ? ' (' + dt + ')' : ''}`);
+    });
+    const pbs = pbLines.length ? pbLines.join('\n  ') : 'None provided';
+
+    const days  = selectedDays.length ? selectedDays.join(', ') : 'Not selected';
+    const times = selectedTimes.length ? selectedTimes.join(', ') : 'Not selected';
+    const kit   = Array.from(document.querySelectorAll('#kitChips .chip.selected')).map(c => c.textContent).join(', ') || 'None selected';
+    const gym   = Array.from(document.querySelectorAll('#gymChips .chip.selected')).map(c => c.textContent).join(', ') || 'None selected';
+
+    const leadupRaces = toggleState['leadup'] === 'Yes'
+      ? (document.getElementById('q_leadupraces').value.trim() || 'Yes but no details given')
+      : 'No lead-up races planned';
+
+    const routineDetail = toggleState['routine'] === 'Yes'
+      ? (document.getElementById('q_routine').value.trim() || 'Yes but no details given')
+      : 'Nothing to integrate';
+
+    const injDetail = toggleState['inj'] === 'Yes'
+      ? (document.getElementById('q_injuries').value.trim() || 'Yes but no details given')
+      : 'None';
+
+    const today = new Date().toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+    const summary =
+`🏁 NEW CLIENT ONBOARDING
+${name} — ${today}
+
+👤 About
+Age: ${age} | Height: ${height}cm | Weight: ${weight}kg
+
+🏊 Swimming
+Can swim 400m continuously: ${toggleState['swim']}
+Background: ${swimBg}${swimDetail ? '\nNotes: ' + swimDetail : ''}
+
+📈 Training History
+Current weekly hours: ${hours} hrs
+Max available per week: ${maxHrs} hrs
+Triathlon experience: ${chipState['history'] || 'Not selected'}
+PBs / race history:
+  ${pbs}
+
+📅 Availability
+Training days: ${days}
+Time of day: ${times}${availNotes ? '\nNotes: ' + availNotes : ''}
+Work pattern: ${chipState['work'] || 'Not selected'}
+Job: ${job}
+
+🔧 Kit and Gym
+Equipment: ${kit}
+Gym access: ${gym}
+TrainingPeaks set up: ${toggleState['tp'] || 'Not answered'}
+
+🏁 Races
+Target race: ${mainRace}
+Lead-up races: ${leadupRaces}
+What success looks like: ${goal}
+
+🔁 Existing Habits
+${routineDetail}
+
+🤕 Injuries / Niggles
+${injDetail}
+
+🥗 Nutrition
+Breakfast: ${breakfast}
+Lunch: ${lunch}
+Dinner: ${dinner}
+
+💬 Anything else
+${other}
+
+Submitted via onboarding form ✓`;
+
+    document.getElementById('waSummary').textContent = summary;
+    const encoded = encodeURIComponent(summary);
+    document.getElementById('waLink').href = `https://wa.me/447455152679?text=${encoded}`;
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successScreen').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function copySummary() {
+    const text = document.getElementById('waSummary').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = '✅ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copy message to clipboard';
+        btn.classList.remove('copied');
+      }, 2500);
+    });
+  }
+
+  document.getElementById('q_name').addEventListener('input', updateProgress);
+</script>
+</body>
+</html>
