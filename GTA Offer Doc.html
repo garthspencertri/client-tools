@@ -35,7 +35,7 @@
   .how-it-works { max-width: 700px; margin: 0 auto 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px 32px; text-align: left; }
   .how-it-works h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white); letter-spacing: 0.5px; margin-bottom: 16px; text-align: center; }
   .hiw-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media(max-width:560px){ .hiw-steps { grid-template-columns: 1fr; } section { padding: 44px 18px; } .hero { padding: 44px 18px 36px; } .hero-price-box { padding: 20px 24px; } .how-it-works { padding: 20px 18px; margin-bottom: 22px; } }
+  @media(max-width:560px){ .hiw-steps { grid-template-columns: 1fr; } section { padding: 44px 18px; } .hero { padding: 44px 18px 36px; } .hero-price-box { padding: 20px 24px; } .how-it-works { padding: 20px 18px; margin-bottom: 22px; } .features-grid > div[style] > div[style*="flex"] > div[style*="min-width"] { min-width: 0 !important; } }
   .hiw-step { display: flex; gap: 12px; align-items: flex-start; }
   .hiw-num { flex-shrink: 0; width: 26px; height: 26px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: var(--white); margin-top: 2px; }
   .hiw-step p { font-size: 14px; color: var(--text-secondary); margin: 0; }
@@ -82,10 +82,10 @@
   .community-banner p { font-size: 16px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; }
 
   /* FEATURES */
-  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; align-items: start; }
   .discord-coaching-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; align-items: flex-start; }
   .discord-coaching-row > .feature-card { flex: 1 1 280px; min-width: 0; }
-  @media(max-width:600px){ .features-grid { grid-template-columns: 1fr; } #discount-card { grid-column: span 1; } .discord-coaching-row > .feature-card { flex: 1 1 100%; } }
+  @media(max-width:600px){ .features-grid { grid-template-columns: 1fr; } #discount-card { grid-column: span 1; } .discord-coaching-row > .feature-card { flex: 1 1 100%; } [style*="min-width: 280px"] { min-width: 0 !important; width: 100% !important; } [style*="min-width: 220px"] { min-width: 0 !important; width: 100% !important; } }
   .feature-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; position: relative; overflow: hidden; }
   .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--teal); opacity: 0.6; }
   .feature-card.highlight-card::before { background: var(--amber); opacity: 0.8; }
@@ -387,12 +387,16 @@
       </div>
     </div>
 
-    <!-- VIDEO LIBRARY -->
+    <!-- VIDEO LIBRARY + GROUP COACHING CALLS -->
     <div class="feature-card">
-      
       <h3>Video Education Library</h3>
       <p>An ever-growing library of coaching content built specifically for triathlon — covering training theory, technique, race strategy, nutrition, recovery, and injury management. Watch on demand, at any time, around your schedule.</p>
       <p class="feat-sub">New content added regularly — this gets more valuable as the community grows.</p>
+      <div style="margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08);">
+        <h3 style="margin-bottom:8px;">2× Monthly Group Coaching Calls</h3>
+        <p>Twice a month, Garth runs a live group coaching session — focused on topics driven by member demand. Not a generic Q&A. Targeted coaching on what matters most to this community right now.</p>
+        <p class="feat-sub">Can't attend live? All calls are recorded and available within 24 hours.</p>
+      </div>
     </div>
 
     <!-- 20% OFF -->
@@ -422,12 +426,7 @@
     </ul>
   </div>
 
-  <!-- GROUP COACHING CALLS - full width -->
-  <div class="feature-card" style="margin-top:16px;">
-    <h3>2× Monthly Group Coaching Calls</h3>
-    <p>Twice a month, Garth runs a live group coaching session inside the Discord Inner Circle — focused on topics driven by member demand. This isn't a generic Q&A. It's targeted coaching on the subjects that matter most to this community right now.</p>
-    <p class="feat-sub">Can't attend live? All calls are recorded and available to replay within 24 hours.</p>
-  </div>
+
 </section>
 
 <div class="divider"></div>
