@@ -165,6 +165,38 @@ h3 {
   line-height: 1.5;
 }
 
+/* ─── VSL ─── */
+.vsl {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+.vsl-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+.vsl-frame {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(29,158,117,0.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(29,158,117,0.12);
+  background: #000;
+}
+.vsl-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .price-box {
   display: inline-block;
   background: rgba(29,158,117,0.08);
@@ -788,6 +820,13 @@ h3 {
   <div class="hero-badge">Founding Member Offer · Only 50 Spots at £499</div>
   <h1>DON'T TRAIN<span>ALONE.</span></h1>
   <p class="hero-sub">The coaching community that gives you structure, expert support, and like-minded people to race faster, without the price tag of 1:1 coaching.</p>
+
+  <div class="vsl">
+    <div class="vsl-label">▶ Watch this before you join</div>
+    <div class="vsl-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/5O4pmlWFWHw?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Garth's Triathlon Academy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="eager"></iframe>
+    </div>
+  </div>
 
   <div class="price-box">
     <div class="price-label">Founding member price · first 50 only</div>
